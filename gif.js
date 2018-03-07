@@ -25,4 +25,12 @@ var searchGiphy = function() {
         url: queryURL,
         method: "GET"
     }).then(function(){})
-}
+};
+
+
+
+$(function(){
+
+
+btnCreate();
+})
