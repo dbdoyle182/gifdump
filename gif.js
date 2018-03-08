@@ -49,6 +49,7 @@ $("#add-animal").on("click", function(event) {
 function displayGifs() {
 
     var searchTerm = $(this).data("name");
+// Added http"s" to get secure link
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&limit=10" + "&api_key=" + apiKey
 
 // Creating an AJAX call for the specific button click
