@@ -1,4 +1,52 @@
 .animalDiv {
     float: left;
     width: 230px;
+    background-color: darkslateblue;
+    margin: 5px;
+    border-radius: 6px;
+}
+.animalBtn {
+    background-color: mediumaquamarine;
+    border-radius: 6px;
+    margin: 5px;
+}
+#animal-name {
+    width: 100%;
+    padding-top: 5px;
+    border-radius: 6px;
+    padding-right: 0px;
+}
+#add-animal {
+    background-color: mediumpurple;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+#btnPlace {
+    padding-right: 0px;
+}
+button {
+    color: whitesmoke;
+}
+h1 {
+    width: 100%;
+    background-color: mediumaquamarine;
+    padding: 5px;
+    border-radius: 6px;
+    color: whitesmoke;
+}
+img {
+    margin: 0px 15px 5px
+}
+.input {
+    background-color: mediumaquamarine;
+    height: 100px;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 6px;
+}
+.page {
+    background-color: palegreen;
+}
+.rating {
+    color: whitesmoke;
 }
