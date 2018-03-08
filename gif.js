@@ -49,28 +49,50 @@ $("#add-animal").on("click", function(event) {
 function displayGifs() {
 
     var searchTerm = $(this).data("name");
-    var queryURL = "http://api.giphy.com/v1/gifs/random?" + "q:" + searchTerm + "&limit:10" + "&api_key=" + apiKey
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&limit=10" + "&api_key=" + apiKey
 
 // Creating an AJAX call for the specific button click
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response){
+        console.log(queryURL)
         console.log(response)
         var results = response.data;
-        var animalDiv = $("<div class=animal>");
-        var animalImg = $("<img>");
-        var animalRt = $("<p>");
+    // For loop going through the results array and picking out individual gifs
         for (var i = 0; i < results.length; i++) {
-            animalRt.text(results[i].rating);
-            
-        }
+            var animalDiv = $("<div class=animalDiv>")
+            var animalImg = $("<img>");
+            var animalRt = $("<p>");
+            animalRt.text("Rating: " + results[i].rating);
+            animalImg.attr({"src":results[i].images.fixed_height_still.url,
+            "data-animate":results[i].images.fixed_height.url,
+            "data-still":results[i].images.fixed_height.url,
+            "data-state":"still"});
+            animalImg.addClass("animate-animal")
+            animalImg.css({"height":"200px","width":"200px"})
+            // Adding gifs to the html
+            animalDiv.append(animalRt);
+            animalDiv.append(animalImg);
+            $("#animal-gif").prepend(animalDiv);
+        };
 
-
-    })
+    });
     
-
 };
+
+function animationStation () {
+
+}
+
+$(function(){
+
+renderBtns();
+
+$(document).on("click", ".animalBtn", displayGifs);
+
+
+})
 
 
 
