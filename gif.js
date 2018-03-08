@@ -61,11 +61,15 @@ function displayGifs() {
         var results = response.data;
     // For loop going through the results array and picking out individual gifs
         for (var i = 0; i < results.length; i++) {
-            var animalDiv = $("<div class=animalDiv>")
+            // These variables create the various html elements that attach to each gif
+            var animalDiv = $("<div class=animalDiv>");
             var animalImg = $("<img>");
+            var favBtn = $("<button class=text-center>");
             var animalRt = $("<p class=text-center>");
-            animalRt.addClass("rating")
+            animalRt.addClass("rating");
             animalRt.text("Rating: " + (results[i].rating).toUpperCase());
+            favBtn.addClass("favbtn");
+            favBtn.text("♥Favorite")
             // This adds the various attributes that I will need for the start/pause function
             animalImg.attr({"src":results[i].images.fixed_height_still.url,
             "data-animate":results[i].images.fixed_height.url,
@@ -77,6 +81,7 @@ function displayGifs() {
             // Adding gifs to the html
             animalDiv.append(animalRt);
             animalDiv.append(animalImg);
+            animalDiv.append(favBtn);
             $("#animal-gif").prepend(animalDiv);
         };
 

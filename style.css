@@ -20,12 +20,23 @@
     background-color: mediumpurple;
     border-radius: 6px;
     margin-top: 10px;
+    color: whitesmoke;
 }
 #btnPlace {
     padding-right: 0px;
 }
 button {
     color: whitesmoke;
+}
+.favbtn {
+    border-radius: 6px;
+    background-color: mediumaquamarine;
+    margin: 0px 75px;
+}
+.favpagebtn {
+    background-color:mediumpurple;
+    border-radius: 6px;
+    margin-left: 5px;
 }
 h1 {
     width: 100%;
@@ -35,7 +46,8 @@ h1 {
     color: whitesmoke;
 }
 img {
-    margin: 0px 15px 5px
+    margin: 0px 15px 5px;
+    border-radius: 6px;
 }
 .input {
     background-color: mediumaquamarine;
