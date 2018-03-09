@@ -56,6 +56,10 @@ img {
     margin-top: 5px;
     border-radius: 6px;
 }
+.mainpage {
+    border-radius: 6px;
+    background-color: mediumaquamarine;
+}
 .page {
     background-color: palegreen;
 }

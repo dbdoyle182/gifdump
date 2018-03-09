@@ -1,27 +1,38 @@
-// Variable with initial array of buttons
-
-var animals = [
-    "cats",
-    "dogs",
-    "hamsters",
-    "goats",
-];
 // Global variables
 var apiKey = "uPrOVK7ybDvGLsxThR99fXbZBXD9evJp";
-
-
+var animals = JSON.parse(localStorage.getItem("animallist"));
+var animalDiv;
+if (!Array.isArray(animals)){
+    animals = [
+        "cats",
+        "dogs",
+        "hamsters",
+        "goats",
+    ];
+};
 // The function that renders the buttons onto the page
 
 function renderBtns() {
 // Clears buttons so that are no repeats
     $("#btnPlace").empty();
+    // Creates a new variable that pulls previous user data from local storage
+    var animalsList = JSON.parse(localStorage.getItem("animallist"))
 // Creates the buttons using a for loop that loops through the animal array
-    
-    for (var i = 0; i < animals.length; i++) {
+
+    // Checks to see if there is an array in local storage, if not it will use the starting array
+    if (!Array.isArray(animalsList)){
+        animalsList= [
+            "cats",
+            "dogs",
+            "hamsters",
+            "goats",
+        ];
+    };
+    for (var i = 0; i < animalsList.length; i++) {
         var animalBtn = $("<button>");
         animalBtn.addClass("animalBtn btn");
-        animalBtn.attr("data-name", animals[i]);
-        animalBtn.text(animals[i].toUpperCase());
+        animalBtn.attr("data-name", animalsList[i]);
+        animalBtn.text(animalsList[i].toUpperCase());
 
 // Appends button to the div with the proper id
 
@@ -34,12 +45,11 @@ function renderBtns() {
 $("#add-animal").on("click", function(event) {
     // Prevents the page from refreshing
     event.preventDefault();
-    
     // Variable to hold the user input
     var newAnimal = $("#animal-name").val().trim();
-    // Pushes new animal into the previous array
+    // Pushes new animal into the previous array/local array depending if there a local array
     animals.push(newAnimal);
-    
+    localStorage.setItem("animallist", JSON.stringify(animals));
     // Runs the button create function to render the html with the new button
     renderBtns();
 });
@@ -104,6 +114,9 @@ function animationStation () {
     };
 
 };
+function favoriteGif () {
+    console.log(animalDiv)
+}
 
 $(function(){
 // Runs the render button function on the initial page load (starter buttons)
@@ -115,7 +128,8 @@ $(document).on("click", ".animalBtn", displayGifs);
 // Listens for a click on a gif and switches between still and animated
 $(document).on("click", ".animate-animal", animationStation);
 
-})
+$(document).on("click", ".favbtn", favoriteGif);
+});
 
 
 
